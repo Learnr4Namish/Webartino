@@ -11,8 +11,8 @@
     <script type="module">
         import { WebArtino } from "http://127.0.0.1:5500/webartino.js"
         WebArtino.byId("clicker").onclick = function() {
-            const names = ["Namish", "Computer"];
-            WebArtino.logMessage(WebArtino.listAll(names));
+            var names = ["Namish", "Mama"];
+            WebArtino.showAlertMessage(WebArtino.listAll(names));
         }
     </script>
 </body>

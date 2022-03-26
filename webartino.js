@@ -62,6 +62,9 @@ export var WebArtino = {
            window.open(URL);
        }
     },
+    closeLink: function closeLink() {
+        window.close();
+    },
     logMessage: function logMessage(logMessage) {
       if (logMessage === undefined) {
           console.error("WebArtino Exception: Log message can never be undefined!");
@@ -86,7 +89,7 @@ export var WebArtino = {
     clearLogs: function clearLogs() {
         console.clear();
     },
-    listAll: function(array) {
+    listAll: function listAll(array) {
         if (array === undefined) {
             WebArtino.logError("WebArtino Exception: Array can never be undefined!");
         }else{
@@ -94,5 +97,5 @@ export var WebArtino = {
                 return array[i];
             }
         }
-    }
+    },
 }
