@@ -13,4 +13,9 @@ WebArtino.byId("clicker");
 </code>
 <p>This returns the element having an ID of clicker and that element is nothing but the <b>Button</b> that we have defined. Now let's define onclick using the following code:-</p>
 <code>
+WebArtino.byId("clicker").onclick = function() {
+            WebArtino.showAlertMessage("Thanks for clicking me!")
+        }
 </code>
+<p>Great! You created your first web page using WebArtino JS! Whenever you click the button now, It's shows an alert message saying thanks for clicking me. Now you can create awesome things using WebArtino! For further help, you can visit <a href="https://www.webartino.xyz/help.html">
+WebArtino Help</a></p>

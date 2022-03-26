@@ -11,8 +11,10 @@
     <button id="clicker">Click me!</button>
     <script type="module">
         // Import WebAtino from WebArtino's CDN.
-        import { WebArtino } from "https://raw.githubusercontent.com/Learnr4Namish/Webartino/main/webartino.js";
-        WebArtino.clicked("clicker", WebArtino.showAlertMessage("clicked!"))
+        import { WebArtino } from "https://cdn.jsdelivr.net/gh/Learnr4Namish/Webartino@main/webartino.js";
+        WebArtino.byId("clicker").onclick = function() {
+            WebArtino.showAlertMessage("Thanks for clicking me!")
+        }
     </script>
 </body>
 </html>
