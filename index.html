@@ -7,9 +7,12 @@
     <title>WebArtino JS example page</title>
 </head>
 <body>
+    <!-- Create a button-->
     <button id="clicker">Click me!</button>
     <script type="module">
+        // Import WebAtino from WebArtino's CDN.
         import { WebArtino } from "https://raw.githubusercontent.com/Learnr4Namish/Webartino/main/webartino.js";
+        WebArtino.clicked("clicker", WebArtino.showAlertMessage("clicked!"))
     </script>
 </body>
 </html>

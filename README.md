@@ -7,3 +7,10 @@
 <img src="https://raw.githubusercontent.com/Learnr4Namish/Webartino/main/code_web_html.png" alt="webPng">
 <p>Now let's import the WebArtino's module by updating your previous code with the new one like this:-</p>
 <img src="https://raw.githubusercontent.com/Learnr4Namish/Webartino/main/demo_1.png">
+<p>You can do anything but let's create nothing but a simple Website using WebArino. First of all, We'll write some javascript, right after importing WebArtino.</p>
+<code>
+WebArtino.byId("clicker");
+</code>
+<p>This returns the element having an ID of clicker and that element is nothing but the <b>Button</b> that we have defined. Now let's define onclick using the following code:-</p>
+<code>
+</code>
