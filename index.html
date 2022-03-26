@@ -9,11 +9,7 @@
 <body>
     <button id="clicker">Click me!</button>
     <script type="module">
-        import { WebArtino } from "http://127.0.0.1:5500/webartino.js"
-        WebArtino.byId("clicker").onclick = function() {
-            var names = ["Namish", "Mama"];
-            WebArtino.showAlertMessage(WebArtino.listAll(names));
-        }
+        import { WebArtino } from "https://raw.githubusercontent.com/Learnr4Namish/Webartino/main/webartino.js";
     </script>
 </body>
 </html>
