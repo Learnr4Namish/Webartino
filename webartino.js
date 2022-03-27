@@ -5,13 +5,18 @@ export var WebArtino = {
             console.error("WebArtino Exception: Alert message can never be undefined!");
         }else{
             alert(message)
+            console.log("WebArtino Usage Tracked: Showed the alert message as '" + message + "'" + "font-size:18px; color:#ff0077;");
+            console.log("WebArtino Usage Tracked: Used showAlertMessage method");
         }
      },
+
      //Returns the raw code document.getElementById();
     byId: function byId(elementId) {
       if (elementId === undefined) {
           console.error("WebArtino Exception: Element Id can never be undefined!");
       }else{
+          console.log("WebArtino Usage Tracked: Used the byId method.");
+          console.log("WebArtino Usage Tracked: Got the element having id as " + elementId);
           return document.getElementById(elementId);
       }
     },
@@ -116,3 +121,4 @@ export var WebArtino = {
     },
     
 }
+export const defaultButton = "WebArtino Button Class: Default Button";
