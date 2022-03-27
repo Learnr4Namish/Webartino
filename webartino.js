@@ -5,7 +5,7 @@ export var WebArtino = {
             console.error("WebArtino Exception: Alert message can never be undefined!");
         }else{
             alert(message)
-            console.log("WebArtino Usage Tracked: Showed the alert message as '" + message + "'" + "font-size:18px; color:#ff0077;");
+            console.log("%c WebArtino Usage Tracked: Showed the alert message as '" + message + "'%s" + "font-size:18px; color:#ff0077;");
             console.log("WebArtino Usage Tracked: Used showAlertMessage method");
         }
      },
