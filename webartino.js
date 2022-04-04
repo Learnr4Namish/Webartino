@@ -303,7 +303,7 @@ export const WebArtino = {
                        const webP = document.createElement("h2")
                    webP.innerHTML = text;
                    webP.id = id;
-                   webP.stylr.fontSize = "1.5em";
+                   webP.style.fontSize = "1.5em";
                    document.body.appendChild(webP)
                    return this.byId(id);  
                    }else{
@@ -328,7 +328,7 @@ export const WebArtino = {
                        const webP = document.createElement("h3")
                    webP.innerHTML = text;
                    webP.id = id;
-                   webP.stylr.fontSize = "1.17em";
+                   webP.style.fontSize = "1.17em";
                    document.body.appendChild(webP);
                    return this.byId(id);
                    }else{
