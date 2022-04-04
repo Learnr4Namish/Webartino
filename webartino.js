@@ -5,7 +5,7 @@ export const darkButton = "WebArtino Button Class: Dark Button";
 export const lightButton = "WebArtino Button Class: Light Button";
 export const HTMLbutton = "WebArtino HTML Button class: Default HTML button";
 export const webBody = "webBody";
-export const WebArtinoButtonTypes = {
+/*export const WebArtinoButtonTypes = {
     defaultButton: defaultButton,
     roundedButton: roundedButton,
     darkButton: darkButton,
@@ -14,7 +14,7 @@ export const WebArtinoButtonTypes = {
 }
 export const insertionZones = {
    webBody: webBody
-}
+}*/
 export var auto = "WebArtinoElementId" + String(Math.floor(Math.random() * 1000000000000000000));
 export const WebArtino = {
     //Show Alert message by using "WebArtino.showAlertMessage(<Here goes your message>);"
@@ -27,6 +27,7 @@ export const WebArtino = {
             console.log("WebArtino Usage Tracked: Used showAlertMessage method");
         }
      },
+
 
      //Returns the raw code document.getElementById();
     byId: function byId(elementId) {
