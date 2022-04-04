@@ -279,7 +279,7 @@ export const WebArtino = {
                        const webP = document.createElement("h1")
                    webP.innerHTML = text;
                    webP.id = id;
-                   webP.stylr.fontSize = "2em";
+                   webP.style.fontSize = "2em";
                    document.body.appendChild(webP)
                    }else{
                        const webP = document.createElement("h1")
