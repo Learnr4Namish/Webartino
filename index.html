@@ -8,16 +8,13 @@
 </head>
 <body>
     <!-- Create a button-->
-    <button id="clicker">Click me!</button>
     <script type="module">
         // Import WebAtino from WebArtino's CDN.
-        import { WebArtino } from "https://cdn.jsdelivr.net/gh/Learnr4Namish/Webartino@master/webartino.js";
+        import { WebArtino, defaultButton, webBody, auto } from "https://cdn.jsdelivr.net/gh/Learnr4Namish/Webartino@master/webartino.js";
         //The rest of your code goes here
         //Get the id of the button and define onclick on that button
-        WebArtino.byId("clicker").onclick = function() {
-            // Show an alert dialog on the page window of the browser
-            WebArtino.showAlertMessage("Thanks for clicking me!")
-        }
+        const newPara = WebArtino.createElem("img", "https://webartino.xyz/icons/icon_webartino_128.png", auto, webBody);
+        WebArtino.showAlertMessage("Hey! Welcome to WebArtino JS!");
     </script>
 </body>
 </html>
