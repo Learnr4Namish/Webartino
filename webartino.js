@@ -15,7 +15,7 @@ export const WebArtinoButtonTypes = {
 export const insertionZones = {
    webBody: webBody
 }
-export var auto = "WebArtinoElementId" + String(Math.floor(Math.random() * 10));
+export var auto = "WebArtinoElementId" + String(Math.floor(Math.random() * 1000000000000000000));
 export const WebArtino = {
     //Show Alert message by using "WebArtino.showAlertMessage(<Here goes your message>);"
     showAlertMessage: function showMessage(message) {
