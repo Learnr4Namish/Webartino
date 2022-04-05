@@ -1,9 +1,4 @@
 console.log("WebArtino JS: Status: Initialised");
-export const defaultButton = "WebArtino Button Class: Default Button";
-export const roundedButton = "WebArtino Button Class: Rounded Button";
-export const darkButton = "WebArtino Button Class: Dark Button";
-export const lightButton = "WebArtino Button Class: Light Button";
-export const HTMLbutton = "WebArtino HTML Button class: Default HTML button";
 export const webBody = "webBody";
 /*export const WebArtinoButtonTypes = {
     defaultButton: defaultButton,
@@ -15,7 +10,20 @@ export const webBody = "webBody";
 export const insertionZones = {
    webBody: webBody
 }*/
-/* Hello Cloudflare 50 */
+export const webPara = "p";
+export const HTMLbutton = "buttonHTML";
+export const webButton = "buttonWebArtino";
+export const roundedButton = "roundedButton";
+export const darkButton = "darkButton";
+export const lightButton = "lightButton";
+export const webLayout = "div";
+export const webHead1 = "h1";
+export const webHead2 = "h2";
+export const webHead3 = "h3";
+export const webHead4 = "h4";
+export const webHead5 = "h5";
+export const webHead6 = "h6";
+export const webImage = "img";
 export var auto = "WebArtinoElementId" + String(Math.floor(Math.random() * 1000000000000000000));
 export const WebArtino = {
     //Show Alert message by using "WebArtino.showAlertMessage(<Here goes your message>);"
@@ -68,11 +76,11 @@ export const WebArtino = {
         console.log("WebArtino Usage Tracked: Used the byQuery method");
     },
     // Writes the html content inside a particular element
-    writeHTML: function writeHTML(elementId, html) {
+    writeHTML: function writeHTML(element, html) {
         if (html === undefined) {
-            console.error("WebArtino Exception: HTML text or Element Id can never be undefined!");
+            console.error("WebArtino Exception: HTML text or Element can never be undefined!");
         }else{
-            return document.getElementById(elementId).innerHTML = html;
+            return element.innerHTML = html;
         }
         console.log("WebArtino Usage Tracked: Used the writeHTML method");
     },
@@ -80,11 +88,11 @@ export const WebArtino = {
         return document.body;
     } ,
     // Gets the HTML content inside a particular element
-    getHTML: function getHTML(elementId) {
-        if (elementId === undefined) {
+    getHTML: function getHTML(element) {
+        if (element === undefined) {
             console.error("WebArtino Exception: Cannot get the html text of undefined element!");
         }else{
-            return document.getElementById(elementId).innerHTML;
+            return element.innerHTML;
         }
         console.log("WebArtino Usage Tracked: Used the getHTML method")
     },
@@ -161,6 +169,7 @@ export const WebArtino = {
         location.reload();
         WebArtino.logMessage("Successfully reloaded the page!");
     },
+    //Changes the title of your html page
     setTitle: function setTitle(title) {
         if (title === undefined) {
            this.logError("WebArtino Exception: The title of HTML document can never be undefined!");
@@ -168,29 +177,31 @@ export const WebArtino = {
             document.title = title;
         }
     },
-   
-   setImage: function setImage(elementId, src) {
-       if (elementId === undefined) {
-           this.logError("WebArtino Exception: The id of element can never be undefined!")
+   // Sets the image for your webImage element
+   setImage: function setImage(element, src) {
+       if (element === undefined) {
+           this.logError("WebArtino Exception: The element can never be undefined!")
    }else if(src === undefined) {
           this.logError("WebArtino Exception: The URL can never be undefined")
    }else{
-       this.byId(elementId).src = src;
+       element.src = src;
    }
 },
- 
-  removeElem: function removeElem(elementId) {
-     if (elementId === undefined) {
-         this.logError("WebArtino Exception: The Id of the element can never be undefined!")
+   getBody: function getBody() {
+     return document.body;
+   },
+  removeElem: function removeElem(element) {
+     if (element === undefined) {
+         this.logError("WebArtino Exception: The element can never be undefined!")
      }else{
-         this.byId(elementId).remove();
+         element.remove();
      }
   },
 
   createElem: function createElem(element, text, id, target) {
       if (element === undefined) {
           this.logError("WebArtino Exception: The Tag of element can never be undefined!");       
-        }else if(element === "p") {
+        }else if(element === webPara) {
          if (text === undefined) {
              this.logError("The text of p can never be undefined!")
          }else {
@@ -212,13 +223,13 @@ export const WebArtino = {
                     webP.innerHTML = text;
                     webP.id = id;
                     webP.style.fontSize = "18px";
-                    this.byId(target).appendChild(webP);
-                    return this.byId(id)    
+                    target.appendChild(webP);
+                    return this.byId(id);    
                     }
                  }
              }
          }
-        }else if(element === "button") {
+        }else if(element === HTMLbutton) {
             if (id === undefined) {
                 this.logError("The ID of button can never be undefined!")
             }else{
@@ -237,44 +248,44 @@ export const WebArtino = {
                    webP.innerHTML = text;
                    webP.id = id;
                    webP.style.fontSize = "18px";
-                   this.byId(target).appendChild(webP);
+                   target.appendChild(webP);
                    return this.byId(id);   
                    }
                 }
             }
-        }else if(element === "img") {
+        }else if(element === webImage) {
             if(id === undefined) {
-               this.logError("The ID of image element can never be undefined!")
+               this.logError("The ID of webImage element can never be undefined!")
             }else{
              if (target === undefined) {
                this.logError(undefined);
-               this.logError("The target of Image element can never be undefined");
+               this.logError("The target of webImage element can never be undefined");
              }else{
                  if (target === webBody) {
                        const webP = document.createElement("img")
                    webP.src = text;
                    webP.id = id;
-                   webP.alt = "WebArtino Image Element";
+                   webP.alt = "WebArtino WebImage Element";
                    document.body.appendChild(webP);
                    return this.byId(id);  
                    }else{
                        const webP = document.createElement("img")
                    webP.src = text;
                    webP.id = id;
-                   webP.alt = "WebArtino Image Element";
-                   this.byId(target).appendChild(webP);
+                   webP.alt = "WebArtino WebImage Element";
+                   target.appendChild(webP);
                    return this.byId(id);    
                    }
             }
         }
-    }else if(element === "h1") {
+    }else if(element === webHead1) {
           if(id === undefined) {
-               this.logError("The ID of h1 element can never be undefined!")
+               this.logError("The ID of webHead element can never be undefined!")
                return undefined;
             }else{
              if (target === undefined) {
                this.logError(undefined);
-               this.logError("The target of h1 element can never be undefined");
+               this.logError("The target of webHead element can never be undefined");
                return undefined;  
              }else{
                  if (target === webBody) {
@@ -288,18 +299,18 @@ export const WebArtino = {
                    webP.innerHTML = text;
                    webP.id = id;
                    webP.style.fontSize = "2em";
-                   this.byId(target).appendChild(webP)
+                   target.appendChild(webP)
                    return this.byId(id);   
                    }
             }  
         }
-    }else if(element === "h2") {
+    }else if(element === webHead2) {
            if(id === undefined) {
-               this.logError("The ID of h2 element can never be undefined!")
+               this.logError("The ID of webHead element can never be undefined!")
             }else{
              if (target === undefined) {
                this.logError(undefined);
-               this.logError("The target of h2 element can never be undefined");
+               this.logError("The target of webHead element can never be undefined");
              }else{
                  if (target === webBody) {
                        const webP = document.createElement("h2")
@@ -313,18 +324,18 @@ export const WebArtino = {
                    webP.innerHTML = text;
                    webP.id = id;
                    webP.style.fontSize = "1.5em";
-                   this.byId(target).appendChild(webP);
+                   target.appendChild(webP);
                    return this.byId(id);    
                    }
             }
         }
-    }else if(element === "h3") {
+    }else if(element === webHead3) {
         if(id === undefined) {
-               this.logError("The ID of h3 element can never be undefined!")
+               this.logError("The ID of webHead element can never be undefined!")
             }else{
              if (target === undefined) {
                this.logError(undefined);
-               this.logError("The target of h3 element can never be undefined");
+               this.logError("The target of webHead element can never be undefined");
              }else{
                  if (target === webBody) {
                        const webP = document.createElement("h3")
@@ -338,18 +349,18 @@ export const WebArtino = {
                    webP.innerHTML = text;
                    webP.id = id;
                    webP.style.fontSize = "1.17em";
-                   this.byId(target).appendChild(webP);
+                   target.appendChild(webP);
                    return this.byId(id);    
                    }
             }
         }
-    }else if(element === "h4") {
+    }else if(element === webHead4) {
           if(id === undefined) {
-               this.logError("The ID of h4 element can never be undefined!")
+               this.logError("The ID of webHead element can never be undefined!")
             }else{
              if (target === undefined) {
                this.logError(undefined);
-               this.logError("The target of h4 element can never be undefined");
+               this.logError("The target of webHead element can never be undefined");
              }else{
                  if (target === webBody) {
                        const webP = document.createElement("h4")
@@ -363,18 +374,18 @@ export const WebArtino = {
                    webP.innerHTML = text;
                    webP.id = id;
                    webP.style.fontSize = "1em";
-                   this.byId(target).appendChild(webP);
+                   target.appendChild(webP);
                    return this.byId(id);    
                    }
             }
         }
-    }else if(element === "h5") {
+    }else if(element === webHead5) {
             if(id === undefined) {
-               this.logError("The ID of h5 element can never be undefined!")
+               this.logError("The ID of webHead element can never be undefined!")
             }else{
              if (target === undefined) {
                this.logError(undefined);
-               this.logError("The target of h5 element can never be undefined");
+               this.logError("The target of webHead element can never be undefined");
              }else{
                  if (target === webBody) {
                        const webP = document.createElement("h5")
@@ -388,18 +399,18 @@ export const WebArtino = {
                    webP.innerHTML = text;
                    webP.id = id;
                    webP.style.fontSize = "0.83em";
-                   this.byId(target).appendChild(webP);
+                   target.appendChild(webP);
                    return this.byId(id);    
                    }
             }
         }
-    }else if(element === "h6") {
+    }else if(element === webHead6) {
         if(id === undefined) {
-               this.logError("The ID of h6 element can never be undefined!")
+               this.logError("The ID of webHead element can never be undefined!")
             }else{
              if (target === undefined) {
                this.logError(undefined);
-               this.logError("The target of h6 element can never be undefined");
+               this.logError("The target of webHead element can never be undefined");
              }else{
                  if (target === webBody) {
                        const webP = document.createElement("h6")
@@ -413,13 +424,77 @@ export const WebArtino = {
                    webP.innerHTML = text;
                    webP.id = id;
                    webP.style.fontSize = "0.83em";
-                   this.byId(target).appendChild(webP);
+                   target.appendChild(webP);
                    return this.byId(id);    
                    }
             }
         }
-    }else{
-         this.logError("WebArtino Elements Exception: Unable to create a element called " + element);
+    }else if (element === webLayout) {
+        if(id === undefined) {
+            this.logError("The ID of webLayout element can never be undefined!")
+         }else{
+          if (target === undefined) {
+            this.logError(undefined);
+            this.logError("The target of webLayout element can never be undefined");
+          }else{
+              if (target === webBody) {
+                    const webP = document.createElement("div")
+                webP.id = id;
+                webP.style.width = "100%";
+                webP.style.height = "fit-content";
+                document.body.appendChild(webP);
+                return this.byId(id);  
+                }else{
+                    const webP = document.createElement("div")
+                    webP.id = id;
+                    webP.style.width = "100%";
+                    webP.style.height = "fit-content";
+                target.appendChild(webP);
+                return this.byId(id);    
+                }
+         }
+     }
+    }else if (element === webButton) {
+    if(id === undefined) {
+        this.logError("The ID of webButton element can never be undefined!")
+     }else{
+      if (target === undefined) {
+        this.logError(undefined);
+        this.logError("The target of webButton element can never be undefined");
+      }else{
+          if (target === webBody) {
+                const webP = document.createElement("button")
+                webP.style.fontWeight = "bold";
+                webP.style.backgroundColor = "#ff0077";
+                webP.style.color = "white";
+                webP.style.height = "40px";
+                if (text.length >= 7) {
+                    webP.style.width = "fit-content";
+                    document.body.appendChild(webP);
+                }else{
+                    webP.style.width = "10em";
+                    document.body.appendChild(webP);
+                }  
+                return this.byId(id);
+            }else{
+                const webP = document.createElement("button")
+                webP.style.fontWeight = "bold";
+                webP.style.backgroundColor = "#ff0077";
+                webP.style.color = "white";
+                webP.style.height = "40px";
+                if (text.length >= 7) {
+                    webP.style.width = "fit-content";
+                    target.appendChild(webP);
+                }else{
+                    webP.style.width = "10em";
+                    target.appendChild(webP);
+                }
+            return this.byId(id);    
+            }
+     }
+ }
+}else{
+        this.logError("WebArtino Elements Exception: Unable to create a element called " + element);
         }
     }
 }
