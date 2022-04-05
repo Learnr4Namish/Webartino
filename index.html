@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebArtino JS example page</title>
+    <title>WebArtino JS CDN</title>
 </head>
 <body>
     <!-- Create a button-->
@@ -13,8 +13,10 @@
         import { WebArtino, defaultButton, webBody, auto } from "https://cdn.jsdelivr.net/gh/Learnr4Namish/Webartino@master/webartino.js";
         //The rest of your code goes here
         //Get the id of the button and define onclick on that button
-        const newPara = WebArtino.createElem("img", "https://webartino.xyz/icons/icon_webartino_128.png", auto, webBody);
-        WebArtino.showAlertMessage("Hey! Welcome to WebArtino JS!");
+        const newImg = WebArtino.createElem("img", "https://webartino.xyz/icons/icon_webartino_128.png", auto, webBody);
+        newImg.width = "64";
+        newImg.height = "64";
+        newImg.style.marginLeft = "0px";
     </script>
 </body>
 </html>

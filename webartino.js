@@ -15,6 +15,7 @@ export const webBody = "webBody";
 export const insertionZones = {
    webBody: webBody
 }*/
+/* Hello Cloudflare */
 export var auto = "WebArtinoElementId" + String(Math.floor(Math.random() * 1000000000000000000));
 export const WebArtino = {
     //Show Alert message by using "WebArtino.showAlertMessage(<Here goes your message>);"
