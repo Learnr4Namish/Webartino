@@ -7,13 +7,18 @@
     <title>WebArtino JS CDN</title>
 </head>
 <body>
-    <!-- Create a button-->
+    <!-- Leave this empty-->
     <script type="module">
         // Import WebAtino from WebArtino's CDN.
-        import { WebArtino, webBody, auto, webButton } from "https://webartino.pages.dev/webartino.js";
+        import { WebArtino, webBody, auto, webImage, webLayout } from "https://webartino.pages.dev/webartino.js";
         //The rest of your code goes here
-        //Get the id of the button and define onclick on that button
-        const newImg = WebArtino.createElem(webButton, "Click", auto, webBody);
+        const newImg = WebArtino.createElem(webImage, "https://webartino.xyz/icons/icon_webartino_128.png", auto, webBody);
+        newImg.width = "64";
+        newImg.height = "64";
+        newImg.style.margin = "0";
+        newImg.style.padding = "0";
+        newDiv.style.display = "flex";
+        newDiv.style.justifyContent = "left";
     </script>
 </body>
 </html>
