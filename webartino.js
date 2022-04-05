@@ -468,6 +468,8 @@ export const WebArtino = {
                 webP.style.backgroundColor = "#ff0077";
                 webP.style.color = "white";
                 webP.style.height = "40px";
+                webP.style.border = "18px";
+                webP.style.fontSize = ""
                 webP.innerHTML = text;
                 if (text.length >= 7) {
                     webP.style.width = "fit-content";
@@ -484,6 +486,8 @@ export const WebArtino = {
                 webP.style.color = "white";
                 webP.style.height = "40px";
                 webP.innerHTML = text;
+                webP.style.border = "none";
+                webP.style.fontSize = "18px";
                 if (text.length >= 7) {
                     webP.style.width = "fit-content";
                     target.appendChild(webP);
