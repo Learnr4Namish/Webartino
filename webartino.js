@@ -201,15 +201,15 @@ export const WebArtino = {
   createElem: function createElem(element, text, id, target) {
       if (element === undefined) {
           this.logError("WebArtino Exception: The Tag of element can never be undefined!");       
-        }else if(element === webPara) {
+        }else if(element === webText) {
          if (text === undefined) {
-             this.logError("The text of p can never be undefined!")
+             this.logError("The text of webText can never be undefined!")
          }else {
              if (id === undefined) {
-                 this.logError("The ID of p can never be undefined!")
+                 this.logError("The ID of webText can never be undefined!")
              }else{
                  if (target === undefined) {
-                     this.logError("The target of p can never be undefined!")
+                     this.logError("The target of webText can never be undefined!")
                  }else{
                     if (target === webBody) {
                         const webP = document.createElement("p")
