@@ -10,7 +10,7 @@ export const webBody = "webBody";
 export const insertionZones = {
    webBody: webBody
 }*/
-export const webPara = "p";
+export const webText = "p";
 export const HTMLbutton = "buttonHTML";
 export const webButton = "buttonWebArtino";
 export const roundedButton = "roundedButton";
