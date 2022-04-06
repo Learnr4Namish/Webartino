@@ -504,5 +504,21 @@ export const WebArtino = {
 }else{
         this.logError("WebArtino Elements Exception: Unable to create a element called " + element);
         }
+    },
+    setClass: function setClass(element, className){
+      if (element === undefined) {
+          this.logError("WebArtino Exception: Element can never be undefined!");
+      }else if(className === undefined) {
+          this.logError("WebArtino Exception: Class Name(String) can never be undefined!");
+      }else{
+        element.className = className;
+      }
+    },
+    makeBold: function makeBold(element) {
+        if (element === undefined) {
+            this.logError("WebArtino Exception: Element can never be undefined!");
+        }else{
+            element.style.fontWeight = "bold";
+        }
     }
 }

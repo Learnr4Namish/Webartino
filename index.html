@@ -10,16 +10,18 @@
     <!-- Leave this empty-->
     <script type="module">
         // Import WebAtino from WebArtino's CDN.
-        import { WebArtino, webBody, auto, webImage, webLayout } from "https://webartino.pages.dev/webartino.js";
+        import { WebArtino, webBody, auto, webImage, webLayout, webText } from "https://webartino.pages.dev/webartino.js";
         //The rest of your code goes here
         const newDiv = WebArtino.createElem(webLayout, null, auto, webBody);
         const newImg = WebArtino.createElem(webImage, "https://webartino.xyz/icons/icon_webartino_128.png", auto, newDiv);
-        newImg.width = "64";
-        newImg.height = "64";
+        newImg.style.width = "64px";
+        newImg.style.height = "64px";
         newImg.style.margin = "0";
         newImg.style.padding = "0";
         newDiv.style.display = "flex";
         newDiv.style.justifyContent = "left";
+        const newP = WebArtino.createElem(webText, "WebArtino", auto, newDiv);
+        
     </script>
 </body>
 </html>
