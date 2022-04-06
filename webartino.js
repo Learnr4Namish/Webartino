@@ -465,6 +465,7 @@ export const WebArtino = {
           if (target === webBody) {
                 const webP = document.createElement("button")
                 webP.style.fontWeight = "bold";
+                webP.id = id;
                 webP.style.backgroundColor = "#ff0077";
                 webP.style.color = "white";
                 webP.style.height = "40px";
@@ -483,6 +484,7 @@ export const WebArtino = {
             }else{
                 const webP = document.createElement("button")
                 webP.style.fontWeight = "bold";
+                webP.id = id;
                 webP.style.backgroundColor = "#ff0077";
                 webP.style.color = "white";
                 webP.style.height = "40px";

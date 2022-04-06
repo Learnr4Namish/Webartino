@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webartino.css">
     <title>WebArtino JS CDN</title>
 </head>
 <body>
     <!-- Leave this empty-->
     <script type="module">
         // Import WebAtino from WebArtino's CDN.
-        import { WebArtino, webBody, auto, webImage, webLayout, webText } from "https://webartino.pages.dev/webartino.js";
+        import { WebArtino, webBody, auto, webButton, webImage, webLayout, webText } from "https://webartino.pages.dev/webartino.js";
         //The rest of your code goes here
-        const newDiv = WebArtino.createElem(webLayout, null, auto, webBody);
-        const newImg = WebArtino.createElem(webImage, "https://webartino.xyz/icons/icon_webartino_128.png", auto, newDiv);
+        const newDiv = WebArtino.createElem(webLayout, null, "webDiv", webBody);
+        const newImg = WebArtino.createElem(webImage, "https://webartino.xyz/icons/icon_webartino_128.png", "webImg", newDiv);
         newImg.style.width = "64px";
         newImg.style.height = "64px";
         newImg.style.margin = "0";
@@ -21,7 +22,15 @@
         newDiv.style.display = "flex";
         newDiv.style.justifyContent = "left";
         const newP = WebArtino.createElem(webText, "WebArtino", auto, newDiv);
-        
+        WebArtino.makeBold(newP);
+        WebArtino.setClass(WebArtino.getBody(), "material-body-noto");
+        newP.style.marginLeft = "15px";
+        const textToDo = "Welcome to WebArtino Js CDN! The CDN for WebArtino helps you integrate WebArtino in your Web Application. Moreover, this CDN page is also made with WebArtino Js and no HTML!";
+        const fsd = WebArtino.createElem(webText, textToDo, "introText", webBody);
+        fsd.style.marginLeft = "5px";
+        fsd.style.transform = "translateY(-10px)";
+        const webNewBtn = WebArtino.createElem(webButton, "Go to WebArtino", "thisBtn", webBody)
+        webNewBtn.style.marginLeft = "5px";
     </script>
 </body>
 </html>
