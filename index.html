@@ -12,7 +12,8 @@
         // Import WebAtino from WebArtino's CDN.
         import { WebArtino, webBody, auto, webImage, webLayout } from "https://webartino.pages.dev/webartino.js";
         //The rest of your code goes here
-        const newImg = WebArtino.createElem(webImage, "https://webartino.xyz/icons/icon_webartino_128.png", auto, webBody);
+        const newDiv = WebArtino.createElem(webLayout, null, auto, webBody);
+        const newImg = WebArtino.createElem(webImage, "https://webartino.xyz/icons/icon_webartino_128.png", auto, newDiv);
         newImg.width = "64";
         newImg.height = "64";
         newImg.style.margin = "0";

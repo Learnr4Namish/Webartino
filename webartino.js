@@ -440,14 +440,14 @@ export const WebArtino = {
               if (target === webBody) {
                     const webP = document.createElement("div")
                 webP.id = id;
-                webP.style.width = "100%";
+                webP.style.width = "fit-content";
                 webP.style.height = "fit-content";
                 document.body.appendChild(webP);
                 return this.byId(id);  
                 }else{
                     const webP = document.createElement("div")
                     webP.id = id;
-                    webP.style.width = "100%";
+                    webP.style.width = "fit-content";
                     webP.style.height = "fit-content";
                 target.appendChild(webP);
                 return this.byId(id);    
