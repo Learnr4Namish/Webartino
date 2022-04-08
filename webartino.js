@@ -24,7 +24,11 @@ export const webHead4 = "h4";
 export const webHead5 = "h5";
 export const webHead6 = "h6";
 export const webImage = "img";
+export const webCode = "code";
+/*
 export var auto = "WebArtinoElementId" + String(Math.floor(Math.random() * 1000000000000000000));
+Don't use this! This has become deprecated and no longer used!
+*/
 export const WebArtino = {
     //Show Alert message by using "WebArtino.showAlertMessage(<Here goes your message>);"
     showAlertMessage: function showMessage(message) {
@@ -503,8 +507,9 @@ export const WebArtino = {
             }
      }
  }
-}else{
-        this.logError("WebArtino Elements Exception: Unable to create a element called " + element);
+}
+else{
+    //In development!
         }
     },
     setClass: function setClass(element, className){
