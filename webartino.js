@@ -1,5 +1,8 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
 console.log("WebArtino JS: Status: Initialised");
-export const webBody = "webBody";
+export const webBody = document.body;
 /*export const WebArtinoButtonTypes = {
     defaultButton: defaultButton,
     roundedButton: roundedButton,
@@ -16,6 +19,7 @@ export const webButton = "buttonWebArtino";
 export const roundedButton = "roundedButton";
 export const darkButton = "darkButton";
 export const lightButton = "lightButton";
+export const simpleWebButton = "Simple Web Button";
 export const webLayout = "div";
 export const webHead1 = "h1";
 export const webHead2 = "h2";
@@ -25,11 +29,21 @@ export const webHead5 = "h5";
 export const webHead6 = "h6";
 export const webImage = "img";
 export const webCode = "code";
+export const googleLoginButton = "googleLoginButton";
+export const webCircleButton = "webCircleButton";
 /*
+@deprecated
 export var auto = "WebArtinoElementId" + String(Math.floor(Math.random() * 1000000000000000000));
 Don't use this! This has become deprecated and no longer used!
 */
 export const WebArtino = {
+    setWebStyle: function() {
+    const linkRe = document.createElement("link");
+    linkRe.rel = "stylesheet";
+    linkRe.href = "https://webartino.pages.link/webartino.css";
+    document.head.appendChild(linkRe);
+     document.body.className = "material-body-noto";
+    },
     //Show Alert message by using "WebArtino.showAlertMessage(<Here goes your message>);"
     showAlertMessage: function showMessage(message) {
         if (message === undefined) {
@@ -201,8 +215,9 @@ export const WebArtino = {
          element.remove();
      }
   },
-
+  //@deprecated Has become deprecated since version 2.0! Please use WebArtinoUI.create() method instead!
   createElem: function createElem(element, text, id, target) {
+      this.logWarning("WebArtino Deprecated method Usage: You are using a deprecated WebArtino method! Please change it to new one!");
       if (element === undefined) {
           this.logError("WebArtino Exception: The Tag of element can never be undefined!");       
         }else if(element === webText) {
@@ -528,4 +543,670 @@ else{
             element.style.fontWeight = "bold";
         }
     }
+}
+export const WebArtinoUI = {
+    create: function createElem(element, text, id, target) {
+        if (element === undefined) {
+            this.logError("WebArtino Exception: The Tag of element can never be undefined!");       
+          }else if(element === webText) {
+           if (text === undefined) {
+               this.logError("The text of webText can never be undefined!")
+           }else {
+               if (id === undefined) {
+                   this.logError("The ID of webText can never be undefined!")
+               }else{
+                   if (target === undefined) {
+                       this.logError("The target of webText can never be undefined!")
+                   }else{
+                      if (target === webBody) {
+                          const webP = document.createElement("p")
+                      webP.innerHTML = text;
+                      webP.id = id;
+                      webP.style.fontSize = "18px";
+                      document.body.appendChild(webP);
+                      return this.byId(id);
+                      }else{
+                          const webP = document.createElement("p")
+                      webP.innerHTML = text;
+                      webP.id = id;
+                      webP.style.fontSize = "18px";
+                      target.appendChild(webP);
+                      return this.byId(id);    
+                      }
+                   }
+               }
+           }
+          }else if(element === HTMLbutton) {
+              if (id === undefined) {
+                  this.logError("The ID of button can never be undefined!")
+              }else{
+                  if (target === undefined) {
+                      this.logError("The target of button can never be undefined!")
+                  }else{
+                     if (target === webBody) {
+                         const webP = document.createElement("button")
+                     webP.innerHTML = text;
+                     webP.id = id;
+                     webP.style.fontSize = "18px";
+                     document.body.appendChild(webP);
+                     return this.byId(id);   
+                     }else{
+                         const webP = document.createElement("button")
+                     webP.innerHTML = text;
+                     webP.id = id;
+                     webP.style.fontSize = "18px";
+                     target.appendChild(webP);
+                     return this.byId(id);   
+                     }
+                  }
+              }
+          }else if(element === webImage) {
+              if(id === undefined) {
+                 this.logError("The ID of webImage element can never be undefined!")
+              }else{
+               if (target === undefined) {
+                 this.logError(undefined);
+                 this.logError("The target of webImage element can never be undefined");
+               }else{
+                   if (target === webBody) {
+                         const webP = document.createElement("img")
+                     webP.src = text;
+                     webP.id = id;
+                     webP.alt = "WebArtino WebImage Element";
+                     document.body.appendChild(webP);
+                     return this.byId(id);  
+                     }else{
+                         const webP = document.createElement("img")
+                     webP.src = text;
+                     webP.id = id;
+                     webP.alt = "WebArtino WebImage Element";
+                     target.appendChild(webP);
+                     return this.byId(id);    
+                     }
+              }
+          }
+      }else if(element === webHead1) {
+            if(id === undefined) {
+                 this.logError("The ID of webHead element can never be undefined!")
+                 return undefined;
+              }else{
+               if (target === undefined) {
+                 this.logError(undefined);
+                 this.logError("The target of webHead element can never be undefined");
+                 return undefined;  
+               }else{
+                   if (target === webBody) {
+                         const webP = document.createElement("h1")
+                     webP.innerHTML = text;
+                     webP.id = id;
+                     webP.style.fontSize = "2em";
+                     document.body.appendChild(webP)
+                     }else{
+                         const webP = document.createElement("h1")
+                     webP.innerHTML = text;
+                     webP.id = id;
+                     webP.style.fontSize = "2em";
+                     target.appendChild(webP)
+                     return this.byId(id);   
+                     }
+              }  
+          }
+      }else if(element === webHead2) {
+             if(id === undefined) {
+                 this.logError("The ID of webHead element can never be undefined!")
+              }else{
+               if (target === undefined) {
+                 this.logError(undefined);
+                 this.logError("The target of webHead element can never be undefined");
+               }else{
+                   if (target === webBody) {
+                         const webP = document.createElement("h2")
+                     webP.innerHTML = text;
+                     webP.id = id;
+                     webP.style.fontSize = "1.5em";
+                     document.body.appendChild(webP)
+                     return this.byId(id);  
+                     }else{
+                         const webP = document.createElement("h2")
+                     webP.innerHTML = text;
+                     webP.id = id;
+                     webP.style.fontSize = "1.5em";
+                     target.appendChild(webP);
+                     return this.byId(id);    
+                     }
+              }
+          }
+      }else if(element === webHead3) {
+          if(id === undefined) {
+                 this.logError("The ID of webHead element can never be undefined!")
+              }else{
+               if (target === undefined) {
+                 this.logError(undefined);
+                 this.logError("The target of webHead element can never be undefined");
+               }else{
+                   if (target === webBody) {
+                         const webP = document.createElement("h3")
+                     webP.innerHTML = text;
+                     webP.id = id;
+                     webP.style.fontSize = "1.17em";
+                     document.body.appendChild(webP);
+                     return this.byId(id);
+                     }else{
+                         const webP = document.createElement("h3")
+                     webP.innerHTML = text;
+                     webP.id = id;
+                     webP.style.fontSize = "1.17em";
+                     target.appendChild(webP);
+                     return this.byId(id);    
+                     }
+              }
+          }
+      }else if(element === webHead4) {
+            if(id === undefined) {
+                 this.logError("The ID of webHead element can never be undefined!")
+              }else{
+               if (target === undefined) {
+                 this.logError(undefined);
+                 this.logError("The target of webHead element can never be undefined");
+               }else{
+                   if (target === webBody) {
+                         const webP = document.createElement("h4")
+                     webP.innerHTML = text;
+                     webP.id = id;
+                     webP.style.fontSize = "1em";
+                     document.body.appendChild(webP);
+                     return this.byId(id);
+                     }else{
+                         const webP = document.createElement("h4")
+                     webP.innerHTML = text;
+                     webP.id = id;
+                     webP.style.fontSize = "1em";
+                     target.appendChild(webP);
+                     return this.byId(id);    
+                     }
+              }
+          }
+      }else if(element === webHead5) {
+              if(id === undefined) {
+                 this.logError("The ID of webHead element can never be undefined!")
+              }else{
+               if (target === undefined) {
+                 this.logError(undefined);
+                 this.logError("The target of webHead element can never be undefined");
+               }else{
+                   if (target === webBody) {
+                         const webP = document.createElement("h5")
+                     webP.innerHTML = text;
+                     webP.id = id;
+                     webP.style.fontSize = "0.83em";
+                     document.body.appendChild(webP);
+                     return this.byId(id);
+                     }else{
+                         const webP = document.createElement("h4")
+                     webP.innerHTML = text;
+                     webP.id = id;
+                     webP.style.fontSize = "0.83em";
+                     target.appendChild(webP);
+                     return this.byId(id);    
+                     }
+              }
+          }
+      }else if(element === webHead6) {
+          if(id === undefined) {
+                 this.logError("The ID of webHead element can never be undefined!")
+              }else{
+               if (target === undefined) {
+                 this.logError(undefined);
+                 this.logError("The target of webHead element can never be undefined");
+               }else{
+                   if (target === webBody) {
+                         const webP = document.createElement("h6")
+                     webP.innerHTML = text;
+                     webP.id = id;
+                     webP.style.fontSize = "0.83em";
+                     document.body.appendChild(webP);
+                     return this.byId(id);  
+                     }else{
+                         const webP = document.createElement("h6")
+                     webP.innerHTML = text;
+                     webP.id = id;
+                     webP.style.fontSize = "0.83em";
+                     target.appendChild(webP);
+                     return this.byId(id);    
+                     }
+              }
+          }
+      }else if (element === webLayout) {
+          if(id === undefined) {
+              this.logError("The ID of webLayout element can never be undefined!")
+           }else{
+            if (target === undefined) {
+              this.logError(undefined);
+              this.logError("The target of webLayout element can never be undefined");
+            }else{
+                if (target === webBody) {
+                      const webP = document.createElement("div")
+                  webP.id = id;
+                  webP.style.width = "fit-content";
+                  webP.style.height = "fit-content";
+                  document.body.appendChild(webP);
+                  return this.byId(id);  
+                  }else{
+                      const webP = document.createElement("div")
+                      webP.id = id;
+                      webP.style.width = "fit-content";
+                      webP.style.height = "fit-content";
+                  target.appendChild(webP);
+                  return this.byId(id);    
+                  }
+           }
+       }
+      }else if (element === webButton) {
+      if(id === undefined) {
+          this.logError("The ID of webButton element can never be undefined!")
+       }else{
+        if (target === undefined) {
+          this.logError(undefined);
+          this.logError("The target of webButton element can never be undefined");
+        }else{
+            if (target === webBody) {
+                  const webP = document.createElement("button")
+                  webP.style.fontWeight = "bold";
+                  webP.id = id;
+                  webP.style.backgroundColor = "#ff0077";
+                  webP.style.color = "white";
+                  webP.style.height = "40px";
+                  webP.style.border = "none";
+                  webP.style.fontSize = "16px";
+                  webP.style.borderRadius = "5px";
+                  webP.innerHTML = text;
+                  if (text.length >= 7) {
+                      webP.style.width = "fit-content";
+                      document.body.appendChild(webP);
+                  }else{
+                      webP.style.width = "10em";
+                      document.body.appendChild(webP);
+                  }  
+                  return this.byId(id);
+              }else{
+                  const webP = document.createElement("button")
+                  webP.style.fontWeight = "bold";
+                  webP.id = id;
+                  webP.style.backgroundColor = "#ff0077";
+                  webP.style.color = "white";
+                  webP.style.height = "40px";
+                  webP.innerHTML = text;
+                  webP.style.border = "none";
+                  webP.style.fontSize = "16px";
+                  webP.style.borderRadius = "5px";
+                  if (text.length >= 7) {
+                      webP.style.width = "fit-content";
+                      target.appendChild(webP);
+                  }else{
+                      webP.style.width = "10em";
+                      target.appendChild(webP);
+                  }
+              return this.byId(id);    
+              }
+       }
+   }
+  }
+  else if(element === roundedButton){
+    if(id === undefined) {
+        this.logError("The ID of roundedButton element can never be undefined!")
+     }else{
+      if (target === undefined) {
+        this.logError(undefined);
+        this.logError("The target of roundedButton element can never be undefined");
+      }else{
+          if (target === webBody) {
+                const webP = document.createElement("button")
+                webP.style.fontWeight = "bold";
+                webP.id = id;
+                webP.style.backgroundColor = "#ff0077";
+                webP.style.color = "white";
+                webP.style.height = "40px";
+                webP.style.border = "none";
+                webP.style.fontSize = "16px";
+                webP.style.borderRadius = "100%";
+                webP.innerHTML = text;
+                if (text.length >= 7) {
+                    webP.style.width = "fit-content";
+                    document.body.appendChild(webP);
+                }else{
+                    webP.style.width = "10em";
+                    document.body.appendChild(webP);
+                }  
+                return this.byId(id);
+            }else{
+                const webP = document.createElement("button")
+                webP.style.fontWeight = "bold";
+                webP.id = id;
+                webP.style.backgroundColor = "#ff0077";
+                webP.style.color = "white";
+                webP.style.height = "40px";
+                webP.innerHTML = text;
+                webP.style.border = "none";
+                webP.style.fontSize = "16px";
+                webP.style.borderRadius = "100%";
+                if (text.length >= 7) {
+                    webP.style.width = "fit-content";
+                    target.appendChild(webP);
+                }else{
+                    webP.style.width = "10em";
+                    target.appendChild(webP);
+                }
+            return this.byId(id);    
+            }
+     }
+ }
+          }else if(element === simpleWebButton) {
+            if(id === undefined) {
+                this.logError("The ID of simpleWebButton element can never be undefined!")
+             }else{
+              if (target === undefined) {
+                this.logError(undefined);
+                this.logError("The target of simpleWebButton element can never be undefined");
+              }else{
+                  if (target === webBody) {
+                        const webP = document.createElement("button")
+                        webP.style.fontWeight = "bold";
+                        webP.id = id;
+                        webP.style.backgroundColor = "#ff0077";
+                        webP.style.color = "white";
+                        webP.style.height = "40px";
+                        webP.style.border = "none";
+                        webP.style.fontSize = "16px";
+                        webP.style.borderRadius = "0";
+                        webP.innerHTML = text;
+                        if (text.length >= 7) {
+                            webP.style.width = "fit-content";
+                            document.body.appendChild(webP);
+                        }else{
+                            webP.style.width = "10em";
+                            document.body.appendChild(webP);
+                        }  
+                        return this.byId(id);
+                    }else{
+                        const webP = document.createElement("button")
+                        webP.style.fontWeight = "bold";
+                        webP.id = id;
+                        webP.style.backgroundColor = "#ff0077";
+                        webP.style.color = "white";
+                        webP.style.height = "40px";
+                        webP.innerHTML = text;
+                        webP.style.border = "none";
+                        webP.style.fontSize = "16px";
+                        webP.style.borderRadius = "0";
+                        if (text.length >= 7) {
+                            webP.style.width = "fit-content";
+                            target.appendChild(webP);
+                        }else{
+                            webP.style.width = "10em";
+                            target.appendChild(webP);
+                        }
+                    return this.byId(id);    
+                    }
+             }
+         }
+          }else if(element === lightButton) {
+            if(id === undefined) {
+                this.logError("The ID of lightButton element can never be undefined!")
+             }else{
+              if (target === undefined) {
+                this.logError(undefined);
+                this.logError("The target of lightButton element can never be undefined");
+              }else{
+                  if (target === webBody) {
+                        const webP = document.createElement("button")
+                        webP.style.fontWeight = "bold";
+                        webP.id = id;
+                        webP.style.backgroundColor = "#ffffff";
+                        webP.style.color = "black";
+                        webP.style.height = "40px";
+                        webP.style.border = "none";
+                        webP.style.fontSize = "16px";
+                        webP.style.borderRadius = "5px";
+                        webP.innerHTML = text;
+                        if (text.length >= 7) {
+                            webP.style.width = "fit-content";
+                            document.body.appendChild(webP);
+                        }else{
+                            webP.style.width = "10em";
+                            document.body.appendChild(webP);
+                        }  
+                        return this.byId(id);
+                    }else{
+                        const webP = document.createElement("button")
+                        webP.style.fontWeight = "bold";
+                        webP.id = id;
+                        webP.style.backgroundColor = "#ffffff";
+                        webP.style.color = "black";
+                        webP.style.height = "40px";
+                        webP.innerHTML = text;
+                        webP.style.border = "none";
+                        webP.style.fontSize = "16px";
+                        webP.style.borderRadius = "5px";
+                        if (text.length >= 7) {
+                            webP.style.width = "fit-content";
+                            target.appendChild(webP);
+                        }else{
+                            webP.style.width = "10em";
+                            target.appendChild(webP);
+                        }
+                    return this.byId(id);    
+                    }
+             }
+         }
+          }else if(element === darkButton) {
+            if(id === undefined) {
+                this.logError("The ID of darkButton element can never be undefined!")
+             }else{
+              if (target === undefined) {
+                this.logError(undefined);
+                this.logError("The target of darkButton element can never be undefined");
+              }else{
+                  if (target === webBody) {
+                        const webP = document.createElement("button")
+                        webP.style.fontWeight = "bold";
+                        webP.id = id;
+                        webP.style.backgroundColor = "#000000";
+                        webP.style.color = "white";
+                        webP.style.height = "40px";
+                        webP.style.border = "none";
+                        webP.style.fontSize = "16px";
+                        webP.style.borderRadius = "5px";
+                        webP.innerHTML = text;
+                        if (text.length >= 7) {
+                            webP.style.width = "fit-content";
+                            document.body.appendChild(webP);
+                        }else{
+                            webP.style.width = "10em";
+                            document.body.appendChild(webP);
+                        }  
+                        return this.byId(id);
+                    }else{
+                        const webP = document.createElement("button")
+                        webP.style.fontWeight = "bold";
+                        webP.id = id;
+                        webP.style.backgroundColor = "#000000";
+                        webP.style.color = "white";
+                        webP.style.height = "40px";
+                        webP.innerHTML = text;
+                        webP.style.border = "none";
+                        webP.style.fontSize = "16px";
+                        webP.style.borderRadius = "5px";
+                        if (text.length >= 7) {
+                            webP.style.width = "fit-content";
+                            target.appendChild(webP);
+                        }else{
+                            webP.style.width = "10em";
+                            target.appendChild(webP);
+                        }
+                    return this.byId(id);    
+                    }
+             }
+         }
+          }else if(element === webCircleButton) {
+            if(id === undefined) {
+                this.logError("The ID of webCircleButton element can never be undefined!")
+             }else{
+              if (target === undefined) {
+                this.logError(undefined);
+                this.logError("The target of webCircleButton element can never be undefined");
+              }else{
+                  if (target === webBody) {
+                        const webP = document.createElement("button")
+                        webP.style.fontWeight = "bold";
+                        webP.id = id;
+                        webP.style.backgroundColor = "#ff0077";
+                        webP.style.color = "white";
+                        webP.style.height = "120px";
+                        webP.style.border = "none";
+                        webP.style.fontSize = "16px";
+                        webP.style.borderRadius = "0";
+                        webP.innerHTML = text;
+                        if (text.length >= 7) {
+                            webP.style.width = "fit-content";
+                            document.body.appendChild(webP);
+                        }else{
+                            webP.style.width = "10em";
+                            document.body.appendChild(webP);
+                        }  
+                        return this.byId(id);
+                    }else{
+                        const webP = document.createElement("button")
+                        webP.style.fontWeight = "bold";
+                        webP.id = id;
+                        webP.style.backgroundColor = "#ff0077";
+                        webP.style.color = "white";
+                        webP.style.height = "120px";
+                        webP.innerHTML = text;
+                        webP.style.border = "none";
+                        webP.style.fontSize = "16px";
+                        webP.style.borderRadius = "100";
+                        if (text.length >= 7) {
+                            webP.style.width = "fit-content";
+                            target.appendChild(webP);
+                        }else{
+                            webP.style.width = "10em";
+                            target.appendChild(webP);
+                        }
+                    return this.byId(id);    
+                    }
+             }
+         }
+          }else if(element === googleLoginButton) {
+            if(id === undefined) {
+                this.logError("The ID of googleLoginButton element can never be undefined!")
+             }else{
+              if (target === undefined) {
+                this.logError(undefined);
+                this.logError("The target of googleLoginButton element can never be undefined");
+              }else{
+                  if (target === webBody) {
+                        const webP = document.createElement("button")
+                        webP.style.fontWeight = "bold";
+                        webP.id = id;
+                        webP.style.backgroundColor = "#ff0077";
+                        webP.style.color = "white";
+                        webP.style.height = "40px";
+                        webP.style.border = "none";
+                        webP.style.fontSize = "16px";
+                        webP.style.borderRadius = "0";
+                        webP.innerHTML = "LOGIN WITH GOOGLE";
+                        if (text.length >= 7) {
+                            webP.style.width = "fit-content";
+                            document.body.appendChild(webP);
+                        }else{
+                            webP.style.width = "10em";
+                            document.body.appendChild(webP);
+                        }  
+                        return this.byId(id);
+                    }else{
+                        const webP = document.createElement("button")
+                        webP.style.fontWeight = "bold";
+                        webP.id = id;
+                        webP.style.backgroundColor = "#ff0077";
+                        webP.style.color = "white";
+                        webP.style.height = "40px";
+                        webP.innerHTML = "LOGIN WITH GOOGLE";
+                        webP.style.border = "none";
+                        webP.style.fontSize = "16px";
+                        webP.style.borderRadius = "0";
+                        if (text.length >= 7) {
+                            webP.style.width = "fit-content";
+                            target.appendChild(webP);
+                        }else{
+                            webP.style.width = "10em";
+                            target.appendChild(webP);
+                        }
+                    return this.byId(id);    
+                    }
+             }
+         }
+          }
+      },
+}
+export const WebFirebaseConfig = {
+        apiKey: null,
+        authDomain: null,
+        projectId: null,
+        storageBucket: null,
+        messagingSenderId: null,
+        appId: null
+}
+export const WebFirebase = {
+    init: function init() {
+        const app = initializeApp(WebFirebaseConfig);
+        return app;
+    },
+    sendAnalytics: function sendAnalytics() {
+        const analytics = getAnalytics(app);
+    },
+    authErrorCode: null,
+    authErrorMessage: null,
+    userUid: null,
+    userEmail: null,
+    createUser(email, password) {
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            this.userUid = user.uid;
+            this.userEmail = user.email;
+            return true;
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            this.authErrorCode = errorCode;
+            this.authErrorMessage = errorMessage;
+            this.userUid = null;
+            this.userEmail = null;
+            WebArtino.showAlertMessage("WebFirebase Exception: Please check your email address and password!")
+            return false;
+              });
+    },
+    signIn(email, password) {
+        const auth = getAuth();
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    this.userUid = user.uid;
+    this.userEmail = user.email;
+    return true;
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+            const errorMessage = error.message;
+            this.authErrorCode = errorCode;
+            this.authErrorMessage = errorMessage;
+            this.userUid = null;
+            this.userEmail = null;
+            WebArtino.showAlertMessage("WebFirebase Exception: Please check your email address and password!")
+            return false;
+  });
+    },
+
 }
