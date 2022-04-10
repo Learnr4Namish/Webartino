@@ -11,7 +11,7 @@
     <!-- Leave this empty-->
     <script type="module">
         // Import WebAtino from WebArtino's CDN.
-        import { WebArtino, webBody, auto, webButton, webImage, webLayout, webText } from "https://webartino.pages.dev/webartino.js";
+        import { WebArtino, webBody, webButton, webImage, webLayout, webText } from "https://webartino.pages.dev/webartino.js";
         //The rest of your code goes here
         const newDiv = WebArtino.createElem(webLayout, null, "webDiv", webBody);
         const newImg = WebArtino.createElem(webImage, "https://webartino.xyz/icons/icon_webartino_128.png", "webImg", newDiv);
@@ -21,7 +21,7 @@
         newImg.style.padding = "0";
         newDiv.style.display = "flex";
         newDiv.style.justifyContent = "left";
-        const newP = WebArtino.createElem(webText, "WebArtino", auto, newDiv);
+        const newP = WebArtino.createElem(webText, "WebArtino", "npxdfc", newDiv);
         WebArtino.makeBold(newP);
         WebArtino.setClass(WebArtino.getBody(), "material-body-noto");
         newP.style.marginLeft = "15px";
