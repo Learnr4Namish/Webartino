@@ -1160,12 +1160,14 @@ export const WebArtinoUI = {
                         webP.style.fontWeight = "bold";
                         webP.id = id;
                         webP.style.listStyle = "disc inside";
+                        document.body.appendChild(webP);
                         return WebArtino.byId(id);
                     }else{
                         const webP = document.createElement("ul")
                         webP.style.fontWeight = "bold";
                         webP.id = id;
                         webP.style.listStyle = "disc inside";
+                        target.appendChild(webP);
                     return WebArtino.byId(id);    
                     }
              }
@@ -1175,7 +1177,7 @@ export const WebArtinoUI = {
       insertListItem: function insertListItem(list, item) {
          if (list.tagName === "ul") {
              WebArtino.logMessage("WebArtino Usage Tracked | Used the insertListItem Method");
-            list.innerHTML += item; 
+            list.innerHTML += item;
             }else{
              WebArtino.logError("WebArtino| WebArtinoUI: Fatal Exception: The insertListItem method can only be used on webList element!");
          }
