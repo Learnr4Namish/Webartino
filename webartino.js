@@ -29,6 +29,7 @@ export const webHead5 = "h5";
 export const webHead6 = "h6";
 export const webImage = "img";
 export const webCode = "code";
+export const webList = "webList";
 export const googleLoginButton = "googleLoginButton";
 export const webCircleButton = "webCircleButton";
 /*
@@ -1145,8 +1146,47 @@ export const WebArtinoUI = {
                     }
              }
          }
+        }
+          else if(element === webBulletList) {
+            if(id === undefined) {
+                WebArtino.logError("The ID of webBulletList element can never be undefined!")
+             }else{
+              if (target === undefined) {
+                WebArtino.logError(undefined);
+                WebArtino.logError("The target of webBulletList element can never be undefined");
+              }else{
+                  if (target === webBody) {
+                        const webP = document.createElement("ul")
+                        webP.style.fontWeight = "bold";
+                        webP.id = id;
+                        webP.style.listStyle = "disc inside";
+                        return WebArtino.byId(id);
+                    }else{
+                        const webP = document.createElement("ul")
+                        webP.style.fontWeight = "bold";
+                        webP.id = id;
+                        webP.style.listStyle = "disc inside";
+                    return WebArtino.byId(id);    
+                    }
+             }
+         }
           }
       },
+      insertListItem: function insertListItem(list, item) {
+         if (list.tagName === "ul") {
+             WebArtino.logMessage("WebArtino Usage Tracked | Used the insertListItem Method");
+            list.innerHTML += item; 
+            }else{
+             WebArtino.logError("WebArtino| WebArtinoUI: Fatal Exception: The insertListItem method can only be used on webList element!");
+         }
+      },
+      readyHTML: function readyHTML(element){
+          if (element === "undefined") {
+              WebArtino.logMessage("WebArtino Fatal Exception: readyHTML carries the element parameter bu null specified!");
+          }else{
+              return element;
+          }
+      }
 }
 export const WebFirebaseConfig = {
         apiKey: null,
