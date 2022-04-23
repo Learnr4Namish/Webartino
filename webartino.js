@@ -216,7 +216,13 @@ export const WebArtino = {
          element.remove();
      }
   },
-  //@deprecated Has become deprecated since version 2.0! Please use WebArtinoUI.create() method instead!
+  whenClicked: function whenClidked(element, clickedFunction){
+      element.onclick = clickedFunction();
+  }
+ /*
+ *@deprecated
+ *
+*/
   createElem: function createElem(element, text, id, target) {
       this.logWarning("WebArtino Deprecated method Usage: You are using a deprecated WebArtino method! Please change it to new one!");
       if (element === undefined) {
