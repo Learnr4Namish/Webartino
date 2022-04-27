@@ -10,8 +10,11 @@
     
 </body>
 <script type="module">
-    import { webBody, WebArtino, darkButton, WebArtinoUI } from "https://webartino.pages.dev/webartino.js";
-   WebArtino.init();
-   WebArtinoUI.create(darkButton, "Click Me", "clicker#1", webBody);
+    import { webBody, WebArtino, darkButton, webImage, WebArtinoUI } from "https://webartino.pages.dev/webartino.js";
+    const btn1 = WebArtinoUI.create(darkButton, "Click Me!", "clicker#1", webBody);
+    function clickedBtn1() {
+        WebArtino.showAlertMessage("You clicked me!");
+    }
+    WebArtino.whenClicked(btn1, clickedBtn1);
 </script>
 </html>
