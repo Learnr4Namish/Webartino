@@ -218,7 +218,7 @@ export const WebArtino = {
   },
   whenClicked: function whenClidked(element, clickedFunction){
       element.onclick = clickedFunction();
-  }
+  },
  /*
  *@deprecated
  *
