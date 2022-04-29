@@ -1260,3 +1260,37 @@ signInWithEmailAndPassword(auth, email, password)
     },
 
 }
+export const WebArtinoStyle = {
+    onHovered: function onHovered(element, hoveredFunction) {
+        const formerStyle = element.style;
+      element.onmouseenter = function(event) {
+      event.preventDefault();
+      hoveredFunction();
+      }
+    element.onmouseleave = function(event) {
+        event.preventDefault();
+        element.style = formerStyle;
+    }
+    },
+    setBackgroundColor: function setBackgroundColor(element, String) {
+        try {
+            element.style.backgroundColor = String;
+        }catch(e) {
+            WebArtino.logError("WebArtino Exception: The style or the element is undefined!")
+        }
+    },
+    setBackgroundImage: function setBackgroundImage(element, String) {
+        try{
+            element.style.background = "url(" + String + ")";
+        }catch(e){
+            WebArtino.logError("WebArtino Exception: The style or the element is undefined!")
+        }
+    },
+    setTransition: function setTransition(element, String) {
+        try{
+            element.style.transition = String;
+        }catch(e){
+            WebArtino.logError("WebArtino Exception: The style or the element is undefined!")
+        }
+    }
+}

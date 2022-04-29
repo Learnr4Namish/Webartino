@@ -11,7 +11,7 @@
     <!-- Leave this empty-->
     <script type="module">
         // Import WebAtino from WebArtino's CDN.
-        import { WebArtino, webBody, webButton, webImage, webLayout, webText } from "https://webartino.pages.dev/webartino.js";
+        import { WebArtino, webBody, webButton, webImage, webLayout, webText, WebArtinoStyle } from "./webartino.js";
         //The rest of your code goes here
         const newDiv = WebArtino.createElem(webLayout, null, "webDiv", webBody);
         const newImg = WebArtino.createElem(webImage, "https://webartino.xyz/icons/icon_webartino_128.png", "webImg", newDiv);
@@ -36,7 +36,11 @@
         function xyzFuncNodes() {
             location.href = "https://webartino.xyz/";
         }
-       WebArtino.whenClicked(webNewBtn, xyzFuncNodes)
+        function xyzNewRandomFunc() {
+            WebArtinoStyle.setBackgroundColor(webNewBtn, "black")
+        }
+       WebArtino.whenClicked(webNewBtn, xyzFuncNodes);
+       WebArtinoStyle.onHovered(webNewBtn, xyzNewRandomFunc);
     </script>
 </body>
 </html>
