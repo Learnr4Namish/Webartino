@@ -1,0 +1,32 @@
+{
+  "name": "webartino-js",
+  "version": "1.0.0",
+  "description": "WebArtino JS is a JS FrameWork developed by Namish Kumar in March 2022 to help developers write short-hand codes.",
+  "main": "webartino.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "node webartino.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Learnr4Namish/Webartino.git"
+  },
+  "keywords": [
+    "JSFrameWork",
+    "JS",
+    "Simple",
+    "and",
+    "conveninient"
+  ],
+  "author": "Namish Kumar <namishkumar000@gmail.com> (https://www.webartino.xyz/)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Learnr4Namish/Webartino/issues"
+  },
+  "homepage": "https://github.com/Learnr4Namish/Webartino#readme",
+  "dependencies": {
+    "webartino-js": "^1.0.0"
+  }
+}
