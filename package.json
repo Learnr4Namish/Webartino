@@ -1,6 +1,6 @@
 {
   "name": "webartino-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "WebArtino JS is a JS FrameWork developed by Namish Kumar in March 2022 to help developers write short-hand codes.",
   "main": "webartino.js",
   "directories": {

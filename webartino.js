@@ -919,7 +919,7 @@ export const WebArtinoUI = {
                 WebArtino.logError("The target of webCodeField element can never be undefined");
               }else{
                   if (target === webBody) {
-                        const webP = document.createElement("code")
+                        const webP = document.createElement("div")
                         document.body.innerHTML += "<br>";
                         webP.id = id;
                         webP.innerHTML = text;
@@ -933,7 +933,7 @@ export const WebArtinoUI = {
                         webBody.appendChild(webP);
                         return webP;
                     }else{
-                        const webP = document.createElement("code");
+                        const webP = document.createElement("div");
                         document.body.innerHTML += "<br>";
                         webP.id = id;
                         WebArtinoStyle.setWidth(webP, "100%");
