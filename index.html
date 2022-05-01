@@ -9,27 +9,30 @@
 </head>
 <body>
     <!-- Leave this empty-->
+    <div id="rootDiv">
+
+    </div>
     <script type="module">
         // Import WebAtino from WebArtino's CDN.
-        import { WebArtino, webBody, webButton, webImage, webLayout, webText, WebArtinoStyle } from "./webartino.js";
+        import { WebArtino, webBody, webButton, webImage, webLayout, webText, WebArtinoStyle, WebArtinoUI, webCodeField} from "./webartino.js";
         //The rest of your code goes here
-        const newDiv = WebArtino.createElem(webLayout, null, "webDiv", webBody);
-        const newImg = WebArtino.createElem(webImage, "https://webartino.xyz/icons/icon_webartino_128.png", "webImg", newDiv);
+        const newDiv = WebArtinoUI.create(webLayout, null, "webDiv", webBody);
+        const newImg = WebArtinoUI.create(webImage, "https://webartino.xyz/icons/icon_webartino_128.png", "webImg", newDiv);
         newImg.style.width = "64px";
         newImg.style.height = "64px";
         newImg.style.margin = "0";
         newImg.style.padding = "0";
         newDiv.style.display = "flex";
         newDiv.style.justifyContent = "left";
-        const newP = WebArtino.createElem(webText, "WebArtino", "npxdfc", newDiv);
+        const newP = WebArtinoUI.create(webText, "WebArtino", "npxdfc", newDiv);
         WebArtino.makeBold(newP);
         WebArtino.setClass(WebArtino.getBody(), "material-body-noto");
         newP.style.marginLeft = "15px";
         const textToDo = "Welcome to WebArtino Js CDN! The CDN for WebArtino helps you integrate WebArtino in your Web Application. Moreover, this CDN page is also made with WebArtino Js and no HTML!";
-        const fsd = WebArtino.createElem(webText, textToDo, "introText", webBody);
+        const fsd = WebArtinoUI.create(webText, textToDo, "introText", webBody);
         fsd.style.marginLeft = "5px";
         fsd.style.transform = "translateY(-10px)";
-        const webNewBtn = WebArtino.createElem(webButton, "Go to WebArtino", "thisBtn", webBody)
+        const webNewBtn = WebArtinoUI.create(webButton, "Go to WebArtino", "thisBtn", webBody)
         webNewBtn.style.marginLeft = "5px";
         webNewBtn.style.transform = "translateY(-12px)";
         webNewBtn.style.width = "10em";
@@ -37,10 +40,19 @@
             location.href = "https://webartino.xyz/";
         }
         function xyzNewRandomFunc() {
-            WebArtinoStyle.setBackgroundColor(webNewBtn, "black")
+            WebArtinoStyle.setBackgroundColor(webNewBtn, "black");
+        }
+        function xyzFuncNodesNew() {
+            WebArtinoStyle.setBackgroundColor(webNewBtn, "#ff0077");
         }
        WebArtino.whenClicked(webNewBtn, xyzFuncNodes);
        WebArtinoStyle.onHovered(webNewBtn, xyzNewRandomFunc);
+       WebArtinoStyle.onHoverComplete(webNewBtn, xyzFuncNodesNew);
+      /* WebArtino.writeHTML(webBody, WebArtino.getHTML(webBody) + "<br>");
+       *const finalTextInp = WebArtinoUI.create(webTextField, "Your Name", "helloElem40505", webBody);
+       *WebArtinoStyle.setWidth(finalTextInp, "100%");
+       *WebArtinoStyle.setMarginLeft(finalTextInp, "8px");
+       *WebArtinoStyle.setMarginRight(finalTextInp, "8px"); */
     </script>
 </body>
 </html>
