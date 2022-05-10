@@ -13,6 +13,7 @@ export const webBody = document.body;
 export const insertionZones = {
    webBody: webBody
 }*/
+export const webHTML = document.documentElement;
 export const webText = "p";
 export const HTMLbutton = "buttonHTML";
 export const webButton = "buttonWebArtino";
@@ -1069,7 +1070,8 @@ export const WebArtinoStyle = {
         }catch(e){
             WebArtino.logError("WebArtino Exception: The style or the element is undefined!");
         }
-    }, 
+    },
+      
     setWidth: function setWidth(element, widthNum) {
         try {
             element.width = widthNum;
@@ -1086,9 +1088,27 @@ WebArtino.logError("WebArtino Exception: The width or the element is undefined!"
 WebArtino.logError("WebArtino Exception: The height or the element is undefined!")
         }
      }, 
+     setPadding: function setPadding(element, paddingNum) {
+        try {
+            element.style.padding = String(paddingNum);
+        }catch(e) {
+WebArtino.logError("WebArtino Exception: The padding or the element is undefined!")
+        }
+     },
      setMargin: function setMargin(element, marginNum) {
         try {
             element.style.margin = marginNum;
+        }catch(e) {
+WebArtino.logError("WebArtino Exception: The margin length or the element is undefined!")
+        }
+     },
+     hideElement: function hideElement(element, bool) {
+        try {
+            if (bool === true) {
+                   element.style.display = "none";
+            }else{
+                WebArtino.logMessage(bool);
+            }
         }catch(e) {
 WebArtino.logError("WebArtino Exception: The margin length or the element is undefined!")
         }
@@ -1121,4 +1141,41 @@ WebArtino.logError("WebArtino Exception: The margin length or the element is und
 WebArtino.logError("WebArtino Exception: The margin length or the element is undefined!")
         }
      },
+     makeRoundedCorners: function makeRoundedCorners(element, radiusNum) {
+        try {
+            element.style.borderRadius = String(radiusNum);
+        }catch(e) {
+WebArtino.logError("WebArtino Exception: The length or the element is undefined!")
+        }
+     },
+     makeElementsCenter: function makeElementsCenter() {
+        WebArtinoStyle.setHeight(webHTML, "100%");
+        webHTML.style.display = "table";
+        WebArtinoStyle.setMargin(webHTML, "auto");
+        webBody.style.display = "table-cell";
+        webBody.style.verticalAlign = "middle";
+     }
+}
+export const WebArtinoDOM = {
+       showSamplePage: function showSamplePage() {
+           WebArtino.setWebStyle();
+            WebArtinoStyle.setBackgroundColor(webBody, "#ff0077");
+           WebArtinoStyle.makeElementsCenter();
+           const webLayoutTarget = WebArtinoUI.create(webLayout, undefined, "webLayout#102030", webBody);
+           WebArtinoStyle.setBackgroundColor(webLayoutTarget, "#ffffff")
+           WebArtinoStyle.setPadding(webLayoutTarget, "100px")
+            const logoImg = WebArtinoUI.create(webImage, "https://webartino.xyz/icons/icon_webartino_128.png", "webArtinoImg#10101", webLayoutTarget);
+            const textFor = WebArtinoUI.create(webText, "Welcome to WebArtino JS!", "welcomeText#102030", webLayoutTarget);
+            WebArtinoStyle.makeRoundedCorners(webLayoutTarget, "10px");
+            WebArtinoStyle.makeRoundedCorners(logoImg, "20px");
+            textFor.style.textAlign = "center";
+            WebArtino.makeBold(textFor);
+            const tgrtBtn = WebArtinoUI.create(webButton, "Continue", "webButton#102030", webLayoutTarget);
+            WebArtinoStyle.setWidth(tgrtBtn, "10em");
+            tgrtBtn.style.alignSelf = "center";
+            tgrtBtn.style.marginLeft = "13px"
+            WebArtino.whenClicked(tgrtBtn,  function defaultClicked() {
+                WebArtino.openNewLink("https://docs.webartino.xyz");
+            });
+       },
 }

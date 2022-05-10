@@ -14,9 +14,9 @@
     </div>
     <script type="module">
         // Import WebAtino from WebArtino's CDN.
-        import { WebArtino, webBody, webButton, webImage, webLayout, webText, WebArtinoStyle, WebArtinoUI, webCodeField} from "./webartino.js";
+        import { WebArtino, webBody, webButton, webImage, webLayout, webText, WebArtinoStyle, WebArtinoUI, webCodeField, WebArtinoDOM} from "./webartino.js";
         //The rest of your code goes here
-        const newDiv = WebArtinoUI.create(webLayout, null, "webDiv", webBody);
+        /*const newDiv = WebArtinoUI.create(webLayout, null, "webDiv", webBody);
         const newImg = WebArtinoUI.create(webImage, "https://webartino.xyz/icons/icon_webartino_128.png", "webImg", newDiv);
         newImg.style.width = "64px";
         newImg.style.height = "64px";
@@ -53,6 +53,7 @@
        *WebArtinoStyle.setWidth(finalTextInp, "100%");
        *WebArtinoStyle.setMarginLeft(finalTextInp, "8px");
        *WebArtinoStyle.setMarginRight(finalTextInp, "8px"); */
+      WebArtinoDOM.showSamplePage();
     </script>
 </body>
 </html>
