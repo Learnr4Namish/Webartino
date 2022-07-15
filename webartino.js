@@ -1164,7 +1164,7 @@ export const WebArtinoDOM = {
            const webLayoutTarget = WebArtinoUI.create(webLayout, undefined, "webLayout#102030", webBody);
            WebArtinoStyle.setBackgroundColor(webLayoutTarget, "#ffffff")
            WebArtinoStyle.setPadding(webLayoutTarget, "100px")
-            const logoImg = WebArtinoUI.create(webImage, "https://webartino.xyz/icons/icon_webartino_128.png", "webArtinoImg#10101", webLayoutTarget);
+            const logoImg = WebArtinoUI.create(webImage, "https://webartino.namishkumar.in/icons/icon_webartino_128.png", "webArtinoImg#10101", webLayoutTarget);
             const textFor = WebArtinoUI.create(webText, "Welcome to WebArtino JS!", "welcomeText#102030", webLayoutTarget);
             WebArtinoStyle.makeRoundedCorners(webLayoutTarget, "10px");
             WebArtinoStyle.makeRoundedCorners(logoImg, "20px");
@@ -1175,7 +1175,7 @@ export const WebArtinoDOM = {
             tgrtBtn.style.alignSelf = "center";
             tgrtBtn.style.marginLeft = "13px"
             WebArtino.whenClicked(tgrtBtn,  function defaultClicked() {
-                WebArtino.openNewLink("https://docs.webartino.xyz");
+                WebArtino.openNewLink("https://docs.webartino.namishkumar.in");
             });
        },
 }
