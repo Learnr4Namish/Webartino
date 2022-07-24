@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/webartino.css">
+    <title>WebArtino JS Docs</title>
+</head>
+<body>
+    <!-- Leave this empty-->
+    <div id="rootDiv">
+
+    </div>
+    <script type="module">
+        // Import WebAtino from WebArtino's CDN.
+        import { WebArtino, webBody, webButton, webImage, webLayout, webText, WebArtinoStyle, WebArtinoUI, webCodeField, WebArtinoDOM} from "/webartino.js";
+        //The rest of your code goes here
+        WebArtino.setWebStyle();
+        const firstElem = WebArtinoUI.create(webLayout, undefined, "WebArtinoLayout1" webBody);
+        const secElem = WebArtinoUI.create(webImage, "https://webartino.namishkumar.in/icons/icon_webartino_128.png", "WebArtinoWebImage1", firstElem);
+    </script>
+</body>
+</html>
