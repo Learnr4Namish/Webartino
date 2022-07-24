@@ -1175,7 +1175,7 @@ export const WebArtinoDOM = {
             tgrtBtn.style.alignSelf = "center";
             tgrtBtn.style.marginLeft = "13px"
             WebArtino.whenClicked(tgrtBtn,  function defaultClicked() {
-                WebArtino.openNewLink("https://docs.webartino.namishkumar.in");
+                WebArtino.openNewLink("https://cdn1.webartino.namishkumar.in/docs/");
             });
        },
 }
